@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Toilets
+        psr4_prefix: Toilets
+        src_path: app

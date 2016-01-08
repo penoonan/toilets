@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LessManager">
+    <option name="lessProfileMap">
+      <map>
+        <entry key="0">
+          <value>
+            <LessProfile>
+              <option name="cssDirectories">
+                <list>
+                  <CssDirectory>
+                    <option name="path" value="$USER_HOME$/Sites/projects/laravel-backbone/laravel/public/css" />
+                  </CssDirectory>
+                </list>
+              </option>
+              <option name="id" value="0" />
+              <option name="lessDirPath" value="$USER_HOME$/Sites/projects/laravel-backbone/laravel/public/css" />
+              <option name="name" value="laravel-backbone" />
+            </LessProfile>
+          </value>
+        </entry>
+        <entry key="1">
+          <value>
+            <LessProfile>
+              <option name="cssDirectories">
+                <list>
+                  <CssDirectory>
+                    <option name="path" value="$PROJECT_DIR$/../aaa/www/laravel-quote-engine/public/assets/stylesheets" />
+                  </CssDirectory>
+                </list>
+              </option>
+              <option name="id" value="1" />
+              <option name="lessDirPath" value="$PROJECT_DIR$/../aaa/www/laravel-quote-engine/public/assets/stylesheets" />
+              <option name="name" value="aaa" />
+            </LessProfile>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="deleteCssFiles" value="false" />
+  </component>
+</project>
