@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
-
 $factory->define(Toilets\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -27,6 +16,17 @@ $factory->define(\Toilets\Models\Business::class, function(Faker\Generator $fake
        'address' => $faker->address,
        'industry' => $faker->bs,
        'description' => $faker->text(500),
-       'status' => $faker->randomElement([1, 2, 3, 4, 5])
+       'status' => $faker->randomElement([1, 2, 3, 4, 5]),
+       'latitude' => $faker->latitude,
+       'longitude' => $faker->longitude,
+       'phone' => $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit . $faker->randomDigit
    ];
+});
+
+$factory->define(\Toilets\Models\Message::class, function(Faker\Generator $faker) {
+    return [
+        'business_id' => $faker->randomElement(\Toilets\Models\Business::all()->lists('id')->all()),
+        'user_id' => $faker->randomElement(\Toilets\Models\User::all()->lists('id')->all()),
+        'message' => $faker->text(500)
+    ];
 });

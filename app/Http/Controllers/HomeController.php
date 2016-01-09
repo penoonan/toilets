@@ -2,6 +2,7 @@
 
 
 use Toilets\Http\Requests\Request;
+use Toilets\Models\User;
 
 class HomeController extends Controller
 {

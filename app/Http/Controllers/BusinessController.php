@@ -44,12 +44,17 @@ class BusinessController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Business $business
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Business $business)
     {
-        //
+        return view('businesses.show', ['biz' => $business]);
+    }
+
+    public function messageForm(Business $business)
+    {
+        return view('businesses.message_form', ['biz' => $business]);
     }
 
     /**

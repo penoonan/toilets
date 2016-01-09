@@ -4,6 +4,8 @@ namespace Toilets\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Toilets\Models\User;
+use Toilets\Models\Business;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
+        $router->model('user', User::class);
+        $router->model('business', Business::class);
 
         parent::boot($router);
     }

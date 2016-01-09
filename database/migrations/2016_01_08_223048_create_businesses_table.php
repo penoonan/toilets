@@ -17,8 +17,11 @@ class CreateBusinessesTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
+            $table->string('phone');
             $table->string('industry');
             $table->string('description');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('status');
             $table->timestamps();
         });

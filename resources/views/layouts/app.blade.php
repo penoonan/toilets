@@ -6,9 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Toilets For Trans People</title>
 
-	@include('assets._lib_css')
-	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href="{{ asset('assets/css/lib.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+
+	{{-- Janky but whatever --}}
+	@if(!empty($biz) && is_object($biz) && method_exists($biz, 'hasGeo') && $biz->hasGeo())
+		{{--<script type="text/javascript" src="{{ asset('assets/js/head-lib.js') }}"></script>--}}
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+	@endif
+        <!-- Fonts -->
+	{{--<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>--}}
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,12 +35,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
+				<a class="navbar-brand" href="{{ url() }}">Toilets</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Welcome</a></li>
+					<li><a href="{{ route('home.about') }}">About</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -56,12 +64,14 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid">
+	<div class="container">
 		@yield('content')
 	</div>
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	@include('assets._lib_js')
+	@section('scripts')
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		@include('assets._js')
+	@show
 	</body>
 </html>

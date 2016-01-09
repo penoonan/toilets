@@ -1,11 +1,10 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header"><h1>These Businesses Have Been Flagged</h1></div>
             <div class="panel panel-default">
-                <div class="panel-heading">These Businesses Have Been Flagged</div>
                 <div class="panel-body">
                     @include('partials._messages')
 

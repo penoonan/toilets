@@ -6,8 +6,10 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.0.0",
+    "google-maps": "^3.1.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.5",
     "laravel-elixir": "^3.0.0"
   },
   "name": "toilets",

@@ -1,11 +1,11 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header">
                 <h1>Gender-Neutral Toilets</h1>
-                <p>More would be nice.</p>
+                <p>Because more of them would be nice.</p>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>About This</h3>
+                    <h3>About Toilets</h3>
                     <p>Lots of businesses that <em>could</em> have gender-neutral bathrooms <em>don't</em>. Why is this important?</p>
                     <p><a href="{{ route('home.about') }}" class="btn btn-default" role="button">Learn More</a></p>
                 </div>
@@ -22,20 +22,21 @@
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>Flag a Business For Us!</h3>
-                    <p>Do you know of a business that meets the criteria? Let me know, I'll add them to the list!</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3>Talk To a Business</h3>
+                    <p>Send an email to businesses and let them know you how they can do better.</p>
+                    <p><a href="{{ route('businesses.index') }}" class="btn btn-default" role="button">Find Businesses</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>Talk To the Business</h3>
-                    <p>Send an email to businesses letting them know you support gender neutral bathrooms.</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3>Flag a Business For Us!</h3>
+                    <p>Do you know of a business that meets the criteria? Flag them - we'll review and add them to the list!</p>
+                    <p><a href="{{ route('businesses.create') }}" class="btn btn-default" role="button">Flag a Business</a></p>
                 </div>
             </div>
         </div>
+
     </div>
 @stop

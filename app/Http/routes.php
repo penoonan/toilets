@@ -23,6 +23,9 @@ Route::group(['prefix' => 'businesses'], function() {
     Route::group(['middleware' => 'auth'], function() {
         Route::get('/flag', ['as' => 'businesses.create', 'uses' => 'BusinessController@create']);
         Route::post('/', ['as' => 'businesses.store', 'uses' => 'BusinessController@store']);
+
+        // TODO
+        // Refactor into resourceful controllers - messages should be sub resource of businesses, as well as of users. .. hmm
         Route::get('/{business}/tell', ['as' => 'businesses.message_form', 'uses' => 'BusinessController@messageForm']);
         Route::put('/{business}', ['as' => 'businesses.send_message', 'uses' => 'BusinessController@sendMessage']);
     });
