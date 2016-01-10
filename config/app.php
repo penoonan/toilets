@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'log' => 'single',
+    'log' => 'daily',
 
     /*
     |--------------------------------------------------------------------------
@@ -144,13 +144,15 @@ return [
         Toilets\Providers\AuthServiceProvider::class,
         Toilets\Providers\EventServiceProvider::class,
         Toilets\Providers\RouteServiceProvider::class,
+        \Toilets\Providers\ViewComposerServiceProvider::class,
 
 
         /*
          * 3rd Party Service Providers
          */
-        Bestmomo\Scafold\ScafoldServiceProvider::class,
-        Cviebrock\EloquentSluggable\SluggableServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class
     ],
 
     /*
@@ -199,7 +201,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
     ],
 
 ];

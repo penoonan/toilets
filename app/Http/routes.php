@@ -14,30 +14,20 @@
 Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 Route::get('/about', ['as' => 'home.about', 'uses' => 'HomeController@about']);
 
-Route::group(['prefix' => 'businesses'], function() {
-    Route::get('/', ['as' => 'businesses.index', 'uses' => 'BusinessController@index']);
-    Route::get('/{business}', ['as' => 'businesses.show', 'uses' => 'BusinessController@show']);
+Route::resource('business', 'BusinessController', ['only' => ['index', 'show', 'create', 'store']]);
+Route::resource('business.message', 'BusinessMessageController', ['only' => ['create', 'store']]);
 
-    // gotta be logged in to take any actions
-    // gonna need this for some due-diligence throttling purposes
-    Route::group(['middleware' => 'auth'], function() {
-        Route::get('/flag', ['as' => 'businesses.create', 'uses' => 'BusinessController@create']);
-        Route::post('/', ['as' => 'businesses.store', 'uses' => 'BusinessController@store']);
-
-        // TODO
-        // Refactor into resourceful controllers - messages should be sub resource of businesses, as well as of users. .. hmm
-        Route::get('/{business}/tell', ['as' => 'businesses.message_form', 'uses' => 'BusinessController@messageForm']);
-        Route::put('/{business}', ['as' => 'businesses.send_message', 'uses' => 'BusinessController@sendMessage']);
-    });
-
+Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function() {
+    Route::resource('user', 'Admin\UserController', ['only' => ['index', 'show', 'edit', 'store']]);
 });
 
+Route::get('/me', ['as' => 'user.show', 'uses' => 'UserController@show']);
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('auth/login', ['as' => 'auth.getLogin', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::get('auth/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', 'Auth\AuthController@postRegister');

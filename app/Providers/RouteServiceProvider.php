@@ -4,6 +4,7 @@ namespace Toilets\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Toilets\Models\Message;
 use Toilets\Models\User;
 use Toilets\Models\Business;
 
@@ -26,8 +27,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        $router->model('user', User::class);
-        $router->model('business', Business::class);
+        $router->model('user', User::class, function($value) {
+            return User::where('slug', $value)->first();
+        });
+
+        $router->model('business', Business::class, function($value) {
+            return Business::where('slug', $value)->first();
+
+        });
+        $router->model('message', Message::class);
 
         parent::boot($router);
     }

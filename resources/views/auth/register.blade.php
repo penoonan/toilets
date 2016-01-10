@@ -13,7 +13,7 @@
 						{!! csrf_field() !!}
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
+							<label class="col-md-4 control-label">Username @include('partials._tooltip', ['text' => 'Any username - does not have to be your "Real Name &trade;"'])</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 							</div>

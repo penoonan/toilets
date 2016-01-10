@@ -15,14 +15,14 @@ class CreateBusinessesTable extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('address');
-            $table->string('phone');
-            $table->string('industry');
-            $table->string('description');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('status');
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('industry')->nullable();
+            $table->string('description')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

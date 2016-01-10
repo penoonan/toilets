@@ -8,13 +8,23 @@
                 <div class="panel-body">
                     @include('partials._messages')
 
-                    <form class="form-horizontal" role="form" method="PUT" action="{{ route('businesses.send_message', ['business' => $biz])  }}">
-                        {!! csrf_field() !!}
+                    {!!
+                        Form::open([
+                            'class' => 'form-horizontal',
+                            'role' => 'form',
+                            'method' => 'post',
+                            'route' => ['business.message.store', $biz->slug]
+                        ])
+                    !!}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="message">Your Message</label>
+                            <label class="col-md-4 control-label" for="body">Your Message</label>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="message" id="message" rows="8"></textarea>
+                                {!! Form::textarea('body', null, [
+                                    'id' => 'body',
+                                    'rows' => 5,
+                                    'class' => 'form-control'
+                                ]) !!}
                             </div>
                         </div>
 
@@ -22,12 +32,8 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="identify"> Include my email address
-                                        <i data-toggle="tooltip"
-                                           title="Leave unchecked if you want to send your message anonymously"
-                                           data-placement="right"
-                                           class="glyphicon glyphicon-question-sign">
-                                        </i>
+                                        {!! Form::checkbox('anonymous', null, true) !!} Hide my email address
+                                        @include('partials._tooltip', ['text' => 'Uncheck this if you want the business owner to see your email address'])
                                     </label>
                                 </div>
                             </div>
@@ -43,13 +49,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    @parent
-    <script type="text/javascript">
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 @endsection

@@ -4,6 +4,9 @@ namespace Toilets\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Toilets\Events\BusinessWasFlagged;
+use Toilets\Listeners\Activity\LogBusinessFlaggedActivity;
+use Toilets\Listeners\Email\Admin\BusinessFlaggedNotification;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,8 +16,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Toilets\Events\SomeEvent' => [
-            'Toilets\Listeners\EventListener',
+        BusinessWasFlagged::class => [
+            LogBusinessFlaggedActivity::class,
+            BusinessFlaggedNotification::class
         ],
     ];
 

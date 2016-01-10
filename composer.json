@@ -7,9 +7,11 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "bestmomo/scafold": "dev-master",
         "cviebrock/eloquent-sluggable": "^3.1",
-        "league/glide": "^1.0"
+        "league/glide": "^1.0",
+        "laravelcollective/html": "5.1.*",
+        "guzzlehttp/guzzle": "^6.1",
+        "barryvdh/laravel-debugbar": "2.1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

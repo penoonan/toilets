@@ -14,9 +14,10 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('business_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->text('message');
+            $table->integer('business_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->text('body');
+            $table->boolean('anonymous')->default(1);
 
             $table->foreign('business_id')->references('id')->on('businesses');
             $table->foreign('user_id')->references('id')->on('users');

@@ -4,7 +4,9 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="page-header"><h2>{{ $biz->name }} <small><a class="pull-right" id="send-message-top-link" href="{{ route('businesses.message_form', ['business' => $biz]) }}">send a message</a></small></h2></div>
+            <div class="page-header"><h2>{{ $biz->name }} <small><a class="pull-right" id="send-message-top-link" href="{{ route('business.message.create', ['business' => $biz->slug]) }}">send a message</a></small></h2></div>
+
+                @include('partials._messages')
 
                 <ul class="list-group">
                     @if(!empty($biz->description))

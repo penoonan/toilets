@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Toilets For Trans People</title>
+	<title>TFTF - Toilets For Trans Folk | Minneapolis St. Paul</title>
 
 	<link href="{{ asset('assets/css/lib.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
@@ -29,18 +29,14 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="{{ url() }}">Toilets</a>
+
+				<a class="navbar-brand" href="{{ url() }}">TFTF</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ route('home.about') }}">About</a></li>
+					<li><a href="http://www.refugerestrooms.org">Find a Restroom</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -55,6 +51,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+								<li>{!! link_to_route('user.show', 'My Profile') !!}</li>
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>
@@ -72,6 +69,11 @@
 	@section('scripts')
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		@include('assets._js')
+		<script type="text/javascript">
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+		</script>
 	@show
 	</body>
 </html>
