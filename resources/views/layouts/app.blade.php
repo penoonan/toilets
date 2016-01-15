@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TFTF - Toilets For Trans Folk | Minneapolis St. Paul</title>
 
-	<link href="{{ asset('assets/css/lib.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+	<link href="{{ secure_asset('assets/css/lib.css') }}" rel="stylesheet">
+	<link href="{{ secure_asset('assets/css/app.css') }}" rel="stylesheet">
 
 	{{-- Janky but whatever --}}
 	@if(!empty($biz) && is_object($biz) && method_exists($biz, 'hasGeo') && $biz->hasGeo())
