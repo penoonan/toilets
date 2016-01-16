@@ -4,9 +4,13 @@ namespace Toilets\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
 use Toilets\Events\BusinessWasFlagged;
+use Toilets\Events\UserSentBusinessMessage;
+
 use Toilets\Listeners\Activity\LogBusinessFlaggedActivity;
 use Toilets\Listeners\Email\Admin\BusinessFlaggedNotification;
+use Toilets\Listeners\Activity\LogUserSentBusinessMessage;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -20,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
             LogBusinessFlaggedActivity::class,
             BusinessFlaggedNotification::class
         ],
+        UserSentBusinessMessage::class => [
+            LogUserSentBusinessMessage::class
+        ]
     ];
 
     /**

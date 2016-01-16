@@ -2,6 +2,7 @@
 
 namespace Toilets\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
@@ -19,6 +20,7 @@ class Activity extends Model
 
     CONST business_was_flagged = 20;
     CONST business_status_changed = 21;
+    CONST business_was_sent_user_message = 22;
 
 
     public function subject()
@@ -41,6 +43,22 @@ class Activity extends Model
      */
     public function render()
     {
-        return 'rendered a string';
+        switch ($this->description) {
+            case self::user_flagged_business:
+                return $this->renderUserFlaggedBusiness();
+                break;
+            default:
+                return 'you did an activity';
+        }
+    }
+
+
+    public function renderUserSentBusinessMessage()
+    {
+    }
+
+    protected function renderUserFlaggedBusiness()
+    {
+        return 'You flagged a business called "'.$this->data->input->name.'"" on '. (new Carbon($this->created_at))->toFormattedDateString();
     }
 }

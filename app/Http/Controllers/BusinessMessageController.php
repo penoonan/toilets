@@ -40,10 +40,12 @@ class BusinessMessageController extends Controller
      */
     public function store(Request $request, Business $business)
     {
-        $message = new Message($request->except('_token'));
+        $data = $request->except('_token');
+        $data['anonymous'] = empty($data['anonymous']) ? 0 : 1;
+        $data['user_id'] = auth()->user()->getKey();
+        $message = new Message($data);
 
         $business->messages()->save($message);
-        auth()->user()->messages()->save($message);
 
         session()->flash('success', 'Your message to '.$business->name.' was sent!');
         return redirect()->route('business.index', $business);

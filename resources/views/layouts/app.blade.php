@@ -37,6 +37,8 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ route('home.about') }}">About</a></li>
 					<li><a href="http://www.refugerestrooms.org">Find a Restroom</a></li>
+					<li>{!! link_to_route('business.index', 'Send Messages') !!}</li>
+					<li>{!! link_to_route('business.create', 'Flag a Business') !!}</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
