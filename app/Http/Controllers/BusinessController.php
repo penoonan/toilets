@@ -51,7 +51,6 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Business::$flagging_validation_rules);
-
         $biz = Business::create($request->except('_token'));
         $user = auth()->user();
 

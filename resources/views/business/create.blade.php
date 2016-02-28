@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="name">What do they do?</label>
                     <div class="col-sm-9">
-                        {!! Form::text('name', null, [
+                        {!! Form::text('industry', null, [
                             'id' => 'name',
                             'class' => 'form-control',
                             'placeholder' => 'Restaurant, Grocery Store, Dentist Office ... '
