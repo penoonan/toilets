@@ -14,11 +14,24 @@
 Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 Route::get('/about', ['as' => 'home.about', 'uses' => 'HomeController@about']);
 
+Route::get('/business/search', ['as' => 'business.search', 'uses' => 'BusinessController@search']);
 Route::resource('business', 'BusinessController', ['only' => ['index', 'show', 'create', 'store']]);
+
 Route::resource('business.message', 'BusinessMessageController', ['only' => ['create', 'store']]);
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function() {
     Route::resource('user', 'Admin\UserController', ['only' => ['index', 'show', 'edit', 'store']]);
+});
+
+Route::group(['prefix' => 'api'], function() {
+
+    Route::group(['prefix' => 'business'], function() {
+        Route::get('search', ['as' => 'api.business.search', 'uses' => 'API\BusinessController@search']);
+        Route::get('query', ['as' => 'api.business.query', 'uses' => 'API\BusinessController@query']);
+    });
+
+    Route::resource('business', 'API\BusinessController', ['only' => ['index']]);
 });
 
 Route::get('/me', ['as' => 'user.show', 'uses' => 'UserController@show']);

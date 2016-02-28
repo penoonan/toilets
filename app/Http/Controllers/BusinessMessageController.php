@@ -5,6 +5,7 @@ namespace Toilets\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Bus;
+use Toilets\Events\UserSentBusinessMessage;
 use Toilets\Http\Requests;
 use Toilets\Http\Controllers\Controller;
 use Toilets\Models\Business;
@@ -35,7 +36,8 @@ class BusinessMessageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Business $business
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Business $business)
@@ -47,8 +49,10 @@ class BusinessMessageController extends Controller
 
         $business->messages()->save($message);
 
+        event(new UserSentBusinessMessage($business, $message, $request));
+
         session()->flash('success', 'Your message to '.$business->name.' was sent!');
-        return redirect()->route('business.index', $business);
+        return redirect()->route('business.index');
 
     }
 

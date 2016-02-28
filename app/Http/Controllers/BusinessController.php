@@ -74,6 +74,14 @@ class BusinessController extends Controller
         return view('business.show', ['biz' => $business]);
     }
 
+    /**
+     * Show the form for searching for businesses
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search()
+    {
+        return view('business.search');
+    }
 
     /**
      * Show the form for editing the specified resource.

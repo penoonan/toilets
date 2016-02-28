@@ -2,9 +2,8 @@
 
 namespace Toilets\Events;
 
-use Toilets\Events\Event;
+use Illuminate\Http\Request;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Toilets\Models\Business;
 use Toilets\Models\Message;
 use Toilets\Models\User;
@@ -12,32 +11,32 @@ use Toilets\Models\User;
 class UserSentBusinessMessage extends Event
 {
     use SerializesModels;
-    /**
-     * @var User
-     */
-    public $user;
+
     /**
      * @var Business
      */
     public $business;
-    /**
+    /**4
      * @var Message
      */
     public $message;
+    /**
+     * @var Request
+     */
+    public $request;
 
     /**
      * Create a new event instance.
      *
-     * @param User $user
      * @param Business $business
      * @param Message $message
+     * @param Request $request
      */
-    public function __construct(User $user, Business $business, Message $message)
+    public function __construct(Business $business, Message $message, Request $request)
     {
-        //
-        $this->user = $user;
         $this->business = $business;
         $this->message = $message;
+        $this->request = $request;
     }
 
     /**

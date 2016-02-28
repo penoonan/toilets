@@ -1,0 +1,26 @@
+{
+  "name": "toilets",
+  "description": "Encourage businesses to embrace gender neutral toilets",
+  "main": "gulpfile.js",
+  "authors": [
+    "pearl noonan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "transgender",
+    "toilet",
+    "activism"
+  ],
+  "homepage": "https://github.com/penoonan/toilets",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "typeahead.js": "^0.11.1"
+  }
+}

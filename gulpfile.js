@@ -11,7 +11,8 @@ gulp.task('default', function() {
 
     gulp.src([
             //'node_modules/bootstrap/dist/css/bootstrap.min.css',
-            'resources/assets/css/readable-bootstrap.min.css'
+            'resources/assets/css/readable-bootstrap.min.css',
+            'resources/assets/css/typeahead.css'
         ])
         .pipe(concat('lib.css'))
         .pipe(gulp.dest('public/assets/css'));
@@ -22,7 +23,8 @@ gulp.task('default', function() {
         .pipe(gulp.dest('public/assets/fonts'));
 
     gulp.src([
-            'node_modules/bootstrap/dist/js/bootstrap.min.js'
+            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'bower_components/typeahead.js/dist/typeahead.bundle.min.js'
         ])
         .pipe(concat('lib.js'))
         .pipe(gulp.dest('public/assets/js'));
