@@ -42,11 +42,7 @@
                 displayKey: 'name',
                 source: businesses,
                 templates: {
-                    empty: [
-                        '<div class="tt-empty-message">',
-                        'No businesses match your query ...',
-                        '</div>'
-                    ].join('\n')
+                    empty: '<div class="tt-empty-message">No businesses match your query ...</div>'
                 }
             });
 

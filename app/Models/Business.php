@@ -52,7 +52,7 @@ class Business extends Model implements SluggableInterface
         return $query->where('status', '!=', 0);
     }
 
-    public function hasGeo()
+    public function getHasGeoAttribute()
     {
         return $this->latitude && $this->longitude;
     }

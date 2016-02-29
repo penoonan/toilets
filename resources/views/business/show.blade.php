@@ -17,7 +17,7 @@
                         <li class="list-group-item">{{ $biz->industry }}</li>
                     @endif
 
-                    @if($biz->hasGeo())
+                    @if($biz->hasGeo)
                         <li class="list-group-item">
                             <div id="map"></div>
                         </li>
